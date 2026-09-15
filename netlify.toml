@@ -1,0 +1,16 @@
+# Netlify configuration for the Crokta AI marketing site.
+# In the Netlify UI set "Base directory" to apps/website (or point the site at this file via
+# "Configuration file" if the repo root is used). The Next.js runtime is detected automatically.
+
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_FLAGS = "--frozen-lockfile"
+  # Override in the Netlify UI with the real production domain.
+  NEXT_PUBLIC_SITE_URL = "https://crokta.ai"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
