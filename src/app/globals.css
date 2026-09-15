@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0d12;
+  --color-ink-2: #10151c;
+  --color-ink-3: #161d26;
+  --color-ink-4: #1e2732;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-2: rgba(255, 255, 255, 0.14);
+  --color-fg: #e8ecf1;
+  --color-fg-2: #b7c0cb;
+  --color-muted: #8b96a3;
+  --color-amber: #f6b234;
+  --color-amber-2: #ffd27a;
+  --color-signal: #3ddc97;
+  --color-critical: #ff5a5f;
+  --color-cyan: #5fd3f3;
+
+  --font-display: var(--font-bricolage), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --animate-scan: scan 6s linear infinite;
+  --animate-pulse-dot: pulse-dot 1.6s ease-in-out infinite;
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-track-a: track-a 9s ease-in-out infinite;
+  --animate-track-b: track-b 11s ease-in-out infinite;
+  --animate-alert-in: alert-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 2.4s both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-blink: blink 1.2s steps(2, start) infinite;
+
+  @keyframes scan {
+    0% { transform: translateY(-10%); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(110%); opacity: 0; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.35; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes track-a {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(110px, 22px); }
+    100% { transform: translate(0, 0); }
+  }
+  @keyframes track-b {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-90px, 12px); }
+    100% { transform: translate(0, 0); }
+  }
+  @keyframes alert-in {
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-amber) 70%, transparent);
+  color: #0a0d12;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Subtle grid backdrop used in the hero and section headers */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+/* Faux video texture for the camera tile */
+.video-noise {
+  background:
+    radial-gradient(120% 90% at 50% 110%, rgba(246, 178, 52, 0.12), transparent 60%),
+    radial-gradient(70% 60% at 20% 0%, rgba(95, 211, 243, 0.10), transparent 60%),
+    linear-gradient(180deg, #151c26 0%, #0e131a 100%);
+}
+.video-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-chevron { transform: rotate(45deg); }

@@ -1,0 +1,23 @@
+# Crokta AI
+
+> AI video intelligence for the CCTV cameras organisations already own. An edge appliance connects to existing IP cameras, NVRs and DVRs over ONVIF/RTSP, runs computer vision on site, and turns footage into real-time alerts with evidence (thumbnail, clip, camera, zone, rule, confidence) and a searchable event record. Built offline-first for Nigeria, Ghana, Kenya and South Africa, where power and internet are unreliable.
+
+Key facts:
+- No camera replacement. Works with Hikvision, Dahua, Uniview, Axis and any ONVIF Profile S / RTSP camera or NVR.
+- Detection runs on the appliance (Edge Lite 4–8 cameras, Edge Pro up to 16, Edge Max 32–48, or a software image on the customer's server).
+- Raw video never leaves the site; only event metadata, thumbnails and short clips are uploaded. Appliance is outbound-only with no open ports.
+- Offline buffering: 72 hours of events, 24 hours of clips; alerts still delivered locally; backfilled events are not re-notified.
+- Alerts via WhatsApp, push, SMS, email, siren/relay and webhooks. Design target: under 8 seconds from detection to WhatsApp.
+- Detectors at launch: person/vehicle, intrusion/line-cross, loitering, tamper. Pro: PPE, man-down, fire/smoke, weapon, counting. Roadmap: ANPR, forklift proximity, advisory behaviour detectors.
+- 14-day tuning window per site; target of 3 or fewer false alerts per camera per day from day 15.
+- Ethics: no emotion recognition, no demographic classification, no "suspicious person" scoring. Face recognition off by default, consent-gated, separate encrypted store.
+- Pricing: per camera per month on Core, Pro and Enterprise plans; hardware outright or bundled into a 24-month subscription; 14-day paid pilot.
+
+## Pages
+- [Home](https://crokta.ai/): overview, how it works, offline-first design, evidence-first alerts, FAQ
+- [Product](https://crokta.ai/product): onboarding, rules engine, pipeline latency targets, full detector catalogue, incidents and search
+- [Hardware](https://crokta.ai/hardware): appliance tiers and specifications, deployment models
+- [Pricing](https://crokta.ai/pricing): plan structure and commercial FAQ
+- [Partners](https://crokta.ai/partners): installer and integrator programme, install flow
+- [Trust](https://crokta.ai/trust): security, privacy, data protection and ethical boundaries
+- [Contact](https://crokta.ai/contact): request a pilot
